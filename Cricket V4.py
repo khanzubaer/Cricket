@@ -1,6 +1,7 @@
 import random
 
-print("\n*** Starting the Match ***")
+print("\n*** Starting the Match ***\n")
+country = {1: "Bangladesh", 2: "India"}
 toss = random.randint(1, 2)
 
 def game():
@@ -46,23 +47,23 @@ def game():
     teamrun = teamrun + totalrun
     print("Team Score: ", str(teamrun) + "/" + str(batsman-1))
     runrate = teamrun/overs
-    print("Run Rate: ",round(runrate, 2))
+    print("Run Rate: ",round(runrate, 2), "\n")
     return teamrun
 
 if (toss == 1):
-    print("\nTeam 1 won the toss & selected: Batting")
+    print(country[1], "won the toss & selected: Batting")
     score1 = game()
-    print("\nTeam 2 batting:")
+    print(country[2], "batting:")
     score2 = game()
 elif (toss == 2):
-    print("\nTeam 2 won the toss & selected: Batting")
+    print(country[2], "won the toss & selected: Batting")
     score2 = game()
-    print("\nTeam 1 batting:")
+    print(country[1], "batting:")
     score1 = game()
 if (score1 > score2):
-    print("\nTeam 1 has won the match")
+    print(country[1], "has won the match by " + str(score1-score2)+ " runs")
 elif (score2 > score1):
-    print("\nTeam 2 has won the match")
+    print(country[2], "has won the match by " + str(score2-score1)+ " runs")
 elif (score1 == score2):
     print("\nMatch Tied")
 
